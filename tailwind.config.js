@@ -7,39 +7,41 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: 'hsl(240 5.9% 98%)',
-        accent: 'hsl(220 47.2% 47.1%)',
-        primary: 'hsl(240 5.9% 10%)',
-        surface: 'hsl(0 0% 100%)',
+        bg: 'var(--bg-color)',
+        accent: 'var(--accent-color)',
+        primary: 'var(--primary-color)',
+        surface: 'var(--surface-color)',
       },
       borderRadius: {
-        lg: '12px',
-        md: '8px',
-        sm: '4px',
-      },
-      spacing: {
-        lg: '24px',
-        md: '16px',
-        sm: '8px',
+        lg: 'var(--radius-lg)',
+        md: 'var(--radius-md)',
+        sm: 'var(--radius-sm)',
       },
       boxShadow: {
-        card: 'rgba(0, 0, 0, 0.12) 0px 8px 24px',
+        card: 'var(--shadow-card)',
+      },
+      spacing: {
+        lg: 'var(--spacing-lg)',
+        md: 'var(--spacing-md)',
+        sm: 'var(--spacing-sm)',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 250ms cubic-bezier(0.22,1,0.36,1)',
-        'slide-up': 'slideUp 250ms cubic-bezier(0.22,1,0.36,1)',
+        'spin-slow': 'spin 3s linear infinite',
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+      transitionTimingFunction: {
+        'ease-spring': 'cubic-bezier(0.22,1,0.36,1)',
       },
     },
   },
   plugins: [],
+  darkMode: 'class',
+  safelist: [
+    {
+      pattern: /bg-(accent|primary|surface)\/\d+/,
+      variants: ['hover', 'focus', 'active'],
+    },
+  ],
 }

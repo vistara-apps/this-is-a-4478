@@ -38,5 +38,10 @@ export default {
   },
   plugins: [],
   darkMode: 'class',
+  safelist: [
+    {
+      pattern: /bg-(accent|primary|surface)\/\d+/,
+      variants: ['hover', 'focus', 'active'],
+    },
+  ],
 }
-
